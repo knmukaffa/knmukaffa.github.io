@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light theme + white background */
+:root { color-scheme: light; }
+html, body { @apply bg-white text-zinc-900; }
+body { background-image: none !important; }
+
+/* Utility styles for buttons */
+.btn {
+  @apply inline-flex items-center justify-center rounded-xl px-5 py-2.5 text-sm font-semibold transition;
+}
+.btn-primary {
+  @apply bg-brand-coral text-white shadow-soft hover:opacity-90;
+}
+.btn-outline {
+  @apply border-2 border-brand-teal text-brand-navy hover:bg-brand-teal/10;
+}
+
+/* Card aesthetics */
+.card {
+  @apply rounded-3xl shadow-soft bg-white;
+}
+
+/* Prose tweaks */
+.prose :where(h1,h2,h3){ @apply text-brand-navy font-bold; }
+
+/* Scrollbar khusus di dalam modal */
+.modal-body {
+  /* Biar layout stabil saat scrollbar muncul */
+  scrollbar-gutter: stable both-edges;
+  /* Firefox */
+  scrollbar-width: thin;                        /* thin | auto */
+  scrollbar-color: #93c5fd transparent;        /* thumb | track */
+}
+
+/* Chrome / Edge / Safari */
+.modal-body::-webkit-scrollbar {
+  width: 10px;                                  /* ketebalan scrollbar */
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: transparent;                      /* bisa #f8fafc kalau mau terlihat */
+  border-radius: 12px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #93c5fd, #2563eb); /* biru lembut → biru tegas */
+  border-radius: 12px;
+  border: 2px solid #ffffff;                    /* bikin thumb “tertanam” di modal putih */
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #60a5fa, #1d4ed8);
+}
+
