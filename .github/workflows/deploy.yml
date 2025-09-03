@@ -25,6 +25,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - name: Add CNAME
+        run: echo "khairun-mukaffa.com" > ./out/CNAME
       - run: touch ./out/.nojekyll   # pastikan file _next tidak diblok Jekyll
       - uses: actions/upload-pages-artifact@v3
         with:
